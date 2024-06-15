@@ -89,6 +89,7 @@ const SaleOrderForm = ({ isOpen, onClose, existingOrder, readonly }) => {
         </ModalHeader>
         <ModalBody>
           <VStack as="form" spacing={4} width="100%">
+            <HStack spacing={4} width="100%">
             <FormControl isInvalid={errors.invoice_number}>
               <FormLabel>Invoice Number</FormLabel>
               <Input
@@ -102,7 +103,7 @@ const SaleOrderForm = ({ isOpen, onClose, existingOrder, readonly }) => {
             <FormControl isInvalid={errors.invoice_date}>
               <FormLabel>Invoice Date</FormLabel>
               <Input
-                type="date"
+                type='datetime-local'
                 placeholder="Invoice Date"
                 {...register("invoice_date", {
                   required: "Invoice date is required",
@@ -110,6 +111,8 @@ const SaleOrderForm = ({ isOpen, onClose, existingOrder, readonly }) => {
                 readOnly={readonly}
               />
             </FormControl>
+            </HStack>
+           
             <FormControl isInvalid={errors.customer_id}>
               <FormLabel>Customer</FormLabel>
               <Select
